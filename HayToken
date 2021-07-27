@@ -1,0 +1,43 @@
+pragma solidity ^0.8.0;
+
+import 'https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol';
+
+contract HayToken is ERC20{
+    
+    constructor()ERC20("SHARP", "SHA"){
+    _mint(msg.sender, 1000000000);
+        
+    }
+    
+    // function name() public view override returns(string memory){
+    //     return name();
+    // }
+    
+    function balanceOf(address _holder)public view override returns(uint256){
+        return balanceOf(_holder);
+    }
+    function transfer(address recipient, uint256 amount)public virtual override returns (bool){
+        _transfer(msg.sender, recipient,amount);
+        return true;
+        
+    }
+    
+    function allowance(address owner, address spender) public view virtual override returns (uint256) {
+        return allowance(owner,spender);
+}
+    function approve(address spender, uint256 amount) public virtual override returns (bool success) {
+        return approve(spender, amount);
+    
+    }
+    
+     function transferFrom( address sender,address recipient,uint256 amount) public virtual override returns (bool success) {
+        return transferFrom (sender, recipient, amount);
+}
+
+     function increaseAllowance(address spender, uint256 addedValue) public virtual override returns (bool success) {
+        return increaseAllowance(spender, addedValue);
+     }
+     function decreaseAllowance(address spender, uint256 subtractedValue) public virtual override returns (bool success) {
+         return decreaseAllowance(spender, subtractedValue);
+     }
+}
